@@ -22,8 +22,8 @@ setup/setup.R
 setup/workshop_functions.R
 
 The R Markdown setup chunk only needs:
+source("setup/setup.R")
 
-source(here::here("setup", "setup.R"))
 
 KEY FUNCTIONS
 ---------------------

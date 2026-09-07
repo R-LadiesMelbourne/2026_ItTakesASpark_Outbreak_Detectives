@@ -1,4 +1,4 @@
-🧬 BREAKING NEWS
+BREAKING NEWS
 
 The reference laboratory has sequenced samples from eight patients.
 Compare these sequences with reference pathogens using a phylogenetic tree.

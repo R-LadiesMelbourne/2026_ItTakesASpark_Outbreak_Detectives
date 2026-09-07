@@ -25,7 +25,3 @@ CONTACT NETWORK DESIGN
 DISCUSSION
 Why did six students remain well despite contact? Possible explanations include differences in intensity/duration
 of exposure, timing, host susceptibility, immunity, behaviour, or chance.
-
-IMPORTANT
-This is simplified teaching data inspired by a real Victorian school outbreak investigation.
-The DNA sequences are synthetic teaching sequences and are not real pathogen sequences.
