@@ -1,0 +1,374 @@
+---
+title: "Outbreak Detectives: Can You Stop the Spread?"
+author: "R-Ladies+ Melbourne"
+output:
+  html_document:
+    toc: true
+    toc_float: true
+    theme: readable
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  fig.width = 9,
+  fig.height = 6
+)
+
+source("setup/setup.R")
+```
+
+# Emergency Alert
+
+Thirty-six students have returned from a school camp.
+
+Several are sick.
+
+Your team has joined the **Global Outbreak Investigation Unit**.
+
+Possible causes include:
+
+- Influenza A
+- Bird flu
+- COVID-19
+- *Staphylococcus aureus* food poisoning
+- Group A *Streptococcus* (Strep A)
+- Zombie Virus A
+
+Your job is to follow the evidence.
+
+---
+
+# 1. Hospital records have arrived
+
+First, open the patient file.
+
+```{r load-patients}
+patients_raw <- load_patients()
+```
+
+Take a look.
+
+```{r look-at-data}
+head(patients_raw)
+```
+
+```{r column-names}
+names(patients_raw)
+```
+
+### What do you notice?
+
+- What does one row represent?
+- What information do we have about each student?
+- Can you spot anything messy?
+
+---
+
+# 2. Clean the data
+
+The hospital entered the records very quickly.
+
+For example:
+
+`Yes`, `YES`, `yes` and `Y`
+
+all mean the same thing.
+
+Instead of fixing every value ourselves, we can use a function.
+
+```{r clean-data}
+patients <- clean_data(patients_raw)
+```
+
+Did it work?
+
+```{r check-cleaning}
+count_cases(patients)
+```
+
+### Why clean data?
+
+Computers need us to be consistent.  
+If `"Yes"` and `"YES"` are written differently, R may think they are different answers.
+
+---
+
+# 3. How many students are sick?
+
+```{r count-cases}
+count_cases(patients)
+```
+
+Now look at the students with the highest temperatures.
+
+```{r sickest}
+show_sickest(patients)
+```
+
+### Your turn
+
+What do you notice about their temperatures?
+
+---
+
+# 4. What symptoms are most common?
+
+```{r symptom-table}
+symptom_table(patients)
+```
+
+Now make a graph.
+
+```{r symptom-plot}
+symptoms <- symptom_table(patients)
+
+ggplot(symptoms, aes(
+  x = n,
+  y = reorder(symptom, n)
+)) +
+  geom_col(fill = "purple") +
+  labs(
+    title = "Symptoms reported by sick students",
+    x = "Number of students",
+    y = "Symptom"
+  )
+```
+
+### Try editing the graph
+
+Change `"purple"` to another colour and run the code again.
+
+You can also change the words inside `title =`, `x =` and `y =`.
+
+### Think like a disease detective
+
+Which symptoms stand out?
+
+Does this help rule out any diseases?
+
+---
+
+# 5. Do sick students have higher temperatures?
+
+```{r temperature}
+ggplot(patients, aes(
+  x = case_status,
+  y = temperature_c,
+  fill = case_status
+)) +
+  geom_boxplot() +
+  labs(
+    title = "Do sick students have higher temperatures?",
+    x = "Student group",
+    y = "Temperature (°C)"
+  )
+```
+
+### Try editing the graph
+
+Inside `aes()`, change:
+
+```r
+fill = case_status
+```
+
+to:
+
+```r
+colour = case_status
+```
+
+What changes?
+
+### What do you notice?
+
+Compare the middle of the two boxplots.
+
+---
+
+# 6. How quickly did students become sick?
+
+```{r onset}
+show_onset(patients)
+```
+
+The time between being exposed and becoming sick can be an important clue.
+
+---
+
+# 7. New evidence: locations
+
+A second file has arrived.
+
+```{r locations}
+locations <- load_locations()
+```
+
+We need information from **both files**.
+
+```{r join}
+investigation <- combine_evidence(
+  patients,
+  locations
+)
+```
+
+Now find the locations with the most illness.
+
+```{r location-table}
+location_table(investigation)
+```
+
+And plot them.
+
+```{r location-plot}
+locations_summary <- location_table(investigation)
+
+ggplot(locations_summary, aes(
+  x = attack_rate,
+  y = reorder(location, attack_rate)
+)) +
+  geom_col(fill = "skyblue") +
+  labs(
+    title = "Where were sick students exposed?",
+    x = "Attack rate",
+    y = "Location"
+  )
+```
+
+### Try editing the graph
+
+Change `"skyblue"` to `"orange"`, `"green"` or another colour.
+
+Then try changing the graph title.
+
+### What does this tell us?
+
+Does one location or activity stand out?
+
+Could there be more than one explanation?
+
+---
+
+# 8. Make a preliminary diagnosis
+
+Open the disease clue sheet.
+
+```{r disease-clues}
+disease_clues <- load_disease_clues()
+
+disease_clues
+```
+
+Before you see the laboratory results, decide:
+
+1. What disease do you think is spreading?
+2. What evidence supports your answer?
+3. Is there anything unusual about two of the sick students?
+
+---
+
+# 9. Breaking News: sequencing results
+
+The laboratory has sequenced DNA from several student samples.
+
+We can use a phylogenetic tree to compare them with reference samples.
+
+The difficult code is hidden inside our function.
+
+```{r tree, fig.width=10, fig.height=7}
+show_tree(
+  sample_colour = "red",
+  reference_colour = "grey30",
+  title = "Which reference is closest to the outbreak samples?"
+)
+```
+
+### Read the tree
+
+- Which reference is closest to most of the student samples?
+- Do all of the student samples belong to the same group?
+- What do you notice about P29 and P30?
+
+A tree can tell us which samples are genetically similar.
+
+It **cannot** prove exactly who infected whom.
+
+---
+
+# 10. Contact tracing
+
+Interviewers have now told us who spent time together.
+
+```{r contacts}
+contacts <- load_contacts()
+```
+
+How many separate groups are in the contact data?
+
+```{r network-groups}
+network_groups(contacts)
+```
+
+Now draw the network.
+
+```{r network, fig.width=10, fig.height=7}
+network <- show_network(
+  contacts,
+  patients,
+  sick_colour = "red",
+  well_colour = "blue",
+  title = "Who had contact with whom?"
+)
+
+network
+```
+
+### Investigate the network
+
+- Are most sick students connected?
+- What is unusual about P29 and P30?
+- Why might some connected students still be well?
+- Does a connection prove that infection occurred?
+
+---
+
+# 11. Final diagnosis
+
+Your team must now give the outbreak response team its answer.
+
+### Main outbreak
+
+What is the most likely disease?
+
+### The two unusual students
+
+Are P29 and P30 part of the same outbreak?
+
+### Give three pieces of evidence
+
+You could use:
+
+- symptoms
+- time to illness
+- locations
+- sequencing
+- contact network
+
+---
+
+# The bigger lesson
+
+Real outbreak investigations combine different types of evidence.
+
+No single graph gives us the whole answer.
+
+Today you used:
+
+**data + coding + epidemiology + genomics + networks**
+
+to solve an outbreak.
+

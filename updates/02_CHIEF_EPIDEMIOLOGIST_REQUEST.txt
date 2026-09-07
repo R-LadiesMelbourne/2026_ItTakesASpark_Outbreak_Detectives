@@ -1,0 +1,7 @@
+📊 REQUEST FROM THE CHIEF EPIDEMIOLOGIST
+
+We need a rapid symptom summary:
+• How many students are sick?
+• Which symptoms are most common among cases?
+• How high are their temperatures?
+• How quickly did symptoms begin?

@@ -1,0 +1,4 @@
+🕸️ CONTACT TRACING UPDATE
+
+Interviewers have supplied a list of close contacts.
+Use the network carefully: it can suggest plausible spread, but it cannot prove who infected whom.

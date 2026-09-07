@@ -1,0 +1,37 @@
+patient_id,location,visited,hours_at_location
+P01,Grade 5/6 classroom,YES,6.2
+P02,Grade 5/6 classroom,yes,4.7
+P03,Grade 5/6 classroom,Y,6.2
+P04,Grade 5/6 classroom,Yes,4.7
+P05,Grade 5/6 classroom,YES,5.3
+P06,Grade 5/6 classroom,yes,5.7
+P07,Grade 5/6 classroom,Y,6.3
+P08,Grade 5/6 classroom,Yes,6.1
+P09,Grade 5/6 classroom,YES,4.8
+P10,Grade 5/6 classroom,yes,6.3
+P11,Grade 5/6 classroom,Y,5.8
+P12,Grade 5/6 classroom,Yes,6.4
+P13,Grade 5/6 classroom,YES,6.2
+P14,Grade 5/6 classroom,yes,4.7
+P15,Grade 5/6 classroom,Y,6.2
+P16,Grade 5/6 classroom,Yes,5.9
+P17,Grade 5/6 classroom,YES,4.8
+P18,Grade 5/6 classroom,yes,5.1
+P19,Group science project,Y,3.5
+P20,Group science project,Yes,3.3
+P21,Group science project,YES,2.6
+P22,Group science project,yes,2.5
+P23,Group science project,Y,3.9
+P24,Group science project,Yes,3.9
+P25,Group science project,YES,4.4
+P26,Group science project,yes,3.1
+P27,Group science project,Y,4.8
+P28,Group science project,Yes,4.2
+P29,Lunch room chicken wraps,YES,1
+P30,Lunch room chicken wraps,yes,1
+P31,Grade 5/6 classroom,Y,0.7
+P32,Library,Yes,0.7
+P33,Lunch room pasta,YES,0.3
+P34,Bus 1,yes,0.6
+P35,Group science project,Y,0.4
+P36,Sports oval,Yes,0.6

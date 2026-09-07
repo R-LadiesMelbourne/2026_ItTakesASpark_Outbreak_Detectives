@@ -1,0 +1,6 @@
+📁 HOSPITAL UPDATE
+
+Patient records have arrived. The file was assembled quickly by several staff members.
+Some values may be written inconsistently.
+
+Task: load the file, inspect its columns and decide what must be cleaned.

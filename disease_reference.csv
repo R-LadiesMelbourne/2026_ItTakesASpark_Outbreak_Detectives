@@ -1,0 +1,7 @@
+disease,fever,cough,vomiting,diarrhoea,confusion_or_bleeding,typical_onset,common_exposure
+Influenza A,High,Common,Sometimes,Uncommon,Rare,1–2 days,Respiratory spread
+Bird flu,High,Common,Sometimes,Possible,Rare,2–5 days,Contact with infected birds
+COVID-19,Possible,Common,Possible,Possible,Uncommon,2–7 days,Respiratory spread
+Staphylococcus aureus food poisoning,Usually low,Rare,Common,Common,,2–8 hours,Food containing pre-formed toxin
+Group A Streptococcus,Common,Rare,Possible,Rare,None,2–5 days,Close contact / respiratory droplets
+Zombie Virus A,High,Possible,Possible,Possible,Very common,Unknown,Fictional
