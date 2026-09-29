@@ -1,7 +1,10 @@
 disease,fever,cough,vomiting,diarrhoea,confusion_or_bleeding,typical_onset,common_exposure
-Influenza A,High,Common,Sometimes,Uncommon,Rare,1–2 days,Respiratory spread
-Bird flu,High,Common,Sometimes,Possible,Rare,2–5 days,Contact with infected birds
-COVID-19,Possible,Common,Possible,Possible,Uncommon,2–7 days,Respiratory spread
-Staphylococcus aureus food poisoning,Usually low,Rare,Common,Common,,2–8 hours,Food containing pre-formed toxin
-Group A Streptococcus,Common,Rare,Possible,Rare,None,2–5 days,Close contact / respiratory droplets
-Zombie Virus A,High,Possible,Possible,Possible,Very common,Unknown,Fictional
+RSV (Respiratory syncytial virus),Low / possible,Very common,Uncommon,Rare,Rare,2–8 days,"Close respiratory contact; classrooms, lunch, activities"
+Human metapneumovirus (HMPV),Possible,Common,Possible,Rare,Rare,3–6 days,Respiratory spread
+Influenza A,High,Common,Sometimes,Uncommon,Rare,1–4 days,Respiratory spread
+COVID-19,Possible,Common,Sometimes,Possible,Rare,2–5 days,Respiratory spread
+Rhinovirus,Usually low,Common,Rare,Rare,Rare,1–3 days,Respiratory spread
+Cryptosporidiosis,Possible,Rare,Common,Very common,Rare,1–12 days; average ~7,Contaminated swimming pool water
+Toxoplasmosis,Possible,Rare,Rare,Rare,Rare,Variable,"Food, soil or cat faeces"
+Eimeriosis,Variable,Rare,Possible,Possible,Rare,Variable,Primarily animal-associated parasite
+Malaria (Plasmodium spp.),Common,Rare,Possible,Possible,Possible,Usually 7+ days,Mosquito exposure

@@ -1,7 +1,15 @@
 REQUEST FROM THE CHIEF EPIDEMIOLOGIST
 
-We need a rapid symptom summary:
+We need a rapid summary of the hospital records.
+
+Please investigate:
 • How many students are sick?
 • Which symptoms are most common among cases?
 • How high are their temperatures?
 • How quickly did symptoms begin?
+
+Look carefully at the symptom patterns.
+
+Do all of the sick students appear to have the same type of illness, or is there evidence that something else may be happening?
+
+Do not make a final diagnosis yet. More evidence is coming.

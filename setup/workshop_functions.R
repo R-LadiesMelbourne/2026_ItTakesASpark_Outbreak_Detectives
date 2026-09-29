@@ -4,6 +4,8 @@
 # R-Ladies+ Melbourne
 # ============================================================
 
+# ---------- Load evidence ----------
+
 load_patients <- function() {
   readr::read_csv(
     "case_files/mystery_A/01_patient_records_messy.csv",
@@ -32,6 +34,9 @@ load_disease_clues <- function() {
   )
 }
 
+
+# ---------- Clean patient data ----------
+
 clean_data <- function(data) {
 
   yes_no_columns <- c(
@@ -39,11 +44,6 @@ clean_data <- function(data) {
     "muscle_aches", "vomiting", "diarrhoea", "loss_of_smell",
     "bleeding", "confusion"
   )
-
-  # Include strawberry_tongue if it exists in the supplied data.
-  if ("strawberry_tongue" %in% names(data)) {
-    yes_no_columns <- c(yes_no_columns, "strawberry_tongue")
-  }
 
   data |>
     dplyr::mutate(
@@ -68,6 +68,9 @@ clean_data <- function(data) {
     )
 }
 
+
+# ---------- Simple investigation summaries ----------
+
 count_cases <- function(data) {
   data |>
     dplyr::count(case_status, name = "students")
@@ -88,10 +91,6 @@ symptom_table <- function(data) {
     "muscle_aches", "vomiting", "diarrhoea",
     "loss_of_smell", "bleeding", "confusion"
   )
-
-  if ("strawberry_tongue" %in% names(data)) {
-    symptoms <- c(symptoms, "strawberry_tongue")
-  }
 
   data |>
     dplyr::filter(case_status == "Sick") |>
@@ -153,6 +152,8 @@ show_onset <- function(data) {
 }
 
 
+# ---------- Location evidence ----------
+
 combine_evidence <- function(patients, locations) {
   dplyr::left_join(patients, locations, by = "patient_id")
 }
@@ -189,6 +190,8 @@ show_locations <- function(data) {
     ggplot2::theme_minimal()
 }
 
+
+# ---------- Phylogenetic tree ----------
 
 show_tree <- function(
   sample_colour = "red",
@@ -262,6 +265,8 @@ show_tree <- function(
 }
 
 
+# ---------- Contact network ----------
+
 show_network <- function(
   contacts,
   patients,
@@ -277,52 +282,72 @@ show_network <- function(
       dplyr::select(patient_id, first_name, case_status)
   )
 
-  comp <- igraph::components(graph)$membership
+  degree <- igraph::degree(graph)
 
-  main_nodes <- which(comp == comp["P01"])
-  food_nodes <- which(comp == comp["P29"])
-  isolated_nodes <- which(igraph::V(graph)$name == "P36")
+  connected_nodes <- which(degree > 0)
+  isolated_nodes <- which(degree == 0)
 
   set.seed(2026)
 
-  main_layout <- igraph::norm_coords(
-    igraph::layout_with_fr(
-      igraph::induced_subgraph(graph, main_nodes)
-    ),
-    xmin = -1, xmax = 1,
-    ymin = -1, ymax = 1
-  )
-
   layout <- matrix(
-    NA,
+    NA_real_,
     nrow = igraph::vcount(graph),
     ncol = 2
   )
 
-  layout[main_nodes, ] <- main_layout
+  if (length(connected_nodes) > 0) {
 
-  layout[food_nodes, ] <- matrix(
-    c(
-      1.65, -0.65,
-      1.65, -1.00
-    ),
-    ncol = 2,
-    byrow = TRUE
-  )
+    connected_graph <- igraph::induced_subgraph(
+      graph,
+      connected_nodes
+    )
 
-  layout[isolated_nodes, ] <- c(-1.55, 0.8)
+    connected_layout <- igraph::layout_with_fr(
+      connected_graph,
+      niter = 1500
+    )
+
+    connected_layout <- igraph::norm_coords(
+      connected_layout,
+      xmin = -2.2,
+      xmax = 0.5,
+      ymin = -1.5,
+      ymax = 1.5
+    )
+
+    layout[connected_nodes, ] <- connected_layout
+  }
+
+  if (length(isolated_nodes) > 0) {
+
+    n_isolated <- length(isolated_nodes)
+    n_col <- ceiling(sqrt(n_isolated))
+    n_row <- ceiling(n_isolated / n_col)
+
+    isolated_grid <- expand.grid(
+      x = seq(1.35, 2.35, length.out = n_col),
+      y = seq(1.15, -1.15, length.out = n_row)
+    )
+
+    isolated_grid <- isolated_grid[
+      seq_len(n_isolated),
+      ,
+      drop = FALSE
+    ]
+
+    layout[isolated_nodes, ] <- as.matrix(isolated_grid)
+  }
 
   igraph::V(graph)$display_label <- igraph::V(graph)$name
 
-  # P01 is the first recognised school case in the Strep A version.
   igraph::V(graph)$display_label[
     igraph::V(graph)$name == "P01"
   ] <- "P01\nFirst reported case"
 
   igraph::V(graph)$node_size <- ifelse(
     igraph::V(graph)$name == "P01",
-    8,
-    5
+    6,
+    4
   )
 
   ggraph::ggraph(
@@ -332,8 +357,9 @@ show_network <- function(
     y = layout[, 2]
   ) +
     ggraph::geom_edge_link(
-      colour = "grey75",
-      linewidth = 0.7
+      colour = "grey70",
+      linewidth = 0.6,
+      alpha = 0.8
     ) +
     ggraph::geom_node_point(
       ggplot2::aes(
@@ -344,7 +370,8 @@ show_network <- function(
     ggraph::geom_node_text(
       ggplot2::aes(label = display_label),
       repel = TRUE,
-      size = 3.5
+      size = 2.5,
+      max.overlaps = Inf
     ) +
     ggplot2::scale_colour_manual(
       values = c(
@@ -372,11 +399,24 @@ show_network <- function(
     )
 }
 
-network_groups <- function(contacts) {
-  graph <- igraph::graph_from_data_frame(
-    contacts,
-    directed = FALSE
-  )
+network_groups <- function(contacts, patients = NULL) {
+
+  if (is.null(patients)) {
+
+    graph <- igraph::graph_from_data_frame(
+      contacts,
+      directed = FALSE
+    )
+
+  } else {
+
+    graph <- igraph::graph_from_data_frame(
+      contacts,
+      directed = FALSE,
+      vertices = patients |>
+        dplyr::select(patient_id)
+    )
+  }
 
   sort(
     igraph::components(graph)$csize,

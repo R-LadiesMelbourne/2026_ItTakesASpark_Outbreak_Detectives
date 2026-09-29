@@ -1,4 +1,16 @@
 CONTACT TRACING UPDATE
 
-Interviewers have supplied a list of close contacts.
-Use the network carefully: it can suggest plausible spread, but it cannot prove who infected whom.
+Interviewers have completed contact tracing for the sick students.
+
+Their records include contacts in classrooms, at lunch, during art class, at hockey training and around swimming practice.
+
+Use the contact network to investigate how the cases are connected.
+
+Questions to consider:
+• Is there one connected group or more than one?
+• Can you identify a large pattern consistent with person-to-person spread?
+• Is there another group whose illness may be better explained by a shared exposure?
+
+Remember: a contact network can suggest plausible transmission patterns, but it cannot prove exactly who infected whom.
+
+Use the network together with the symptoms, locations and sequencing evidence.

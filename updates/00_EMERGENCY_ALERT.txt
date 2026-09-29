@@ -1,7 +1,13 @@
 EMERGENCY ALERT
 
-Thirty-six students have returned from a school science camp.
-The school has reported an unusual cluster of illness.
+Several local hospitals have reported an unusual increase in sick students from the same school.
+
+Students from two classrooms have presented with a range of symptoms, and the number of cases is continuing to grow.
+
+The school has also reported that some students have recently taken part in shared classes, lunchtime activities, sport and swimming practice.
 
 Your team has joined the Global Outbreak Investigation Unit.
+
+Your job is to work out what is happening.
+
 Do not diagnose the outbreak yet. Follow the evidence.

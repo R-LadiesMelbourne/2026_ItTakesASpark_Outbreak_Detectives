@@ -1,4 +1,14 @@
 NEW EVIDENCE
 
-A second file has arrived showing where each student spent time.
-Combine it with the patient records and identify exposures associated with illness.
+The school has supplied information showing where students spent time before becoming sick.
+
+Students mixed in several places, including their classrooms, lunch areas, art class, hockey training and swimming practice.
+
+A second file has arrived containing this information.
+
+Combine the location information with the patient records and look for shared exposures associated with illness.
+
+Questions to consider:
+• Do the sick students share the same locations?
+• Does one activity or location stand out?
+• Could different groups of students have had different exposures?

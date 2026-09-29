@@ -1,6 +1,15 @@
 BREAKING NEWS
 
-The reference laboratory has sequenced samples from eight patients.
-Compare these sequences with reference pathogens using a phylogenetic tree.
+The reference laboratory has now sequenced samples from selected sick students.
 
-The sequences are simulated and must not be treated as real pathogen data.
+The students were chosen to represent different symptom patterns seen in the hospital records.
+
+Compare the student samples with the reference organisms using the phylogenetic tree.
+
+Questions to consider:
+• Do all of the student samples cluster together?
+• Which reference is closest to each group of student samples?
+• Does the sequencing evidence support one outbreak, or could more than one illness be occurring?
+
+IMPORTANT TEACHING NOTE:
+The sequences in this activity are simulated teaching sequences. The tree deliberately compares very different organisms so that students can practise interpreting clustering. It is not a biologically valid phylogeny of viruses and parasites and must not be treated as real pathogen sequence data.

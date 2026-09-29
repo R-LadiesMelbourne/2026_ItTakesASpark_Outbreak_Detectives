@@ -1,6 +1,11 @@
 HOSPITAL UPDATE
 
-Patient records have arrived. The file was assembled quickly by several staff members.
-Some values may be written inconsistently.
+Patient records have arrived from several hospitals.
 
-Task: load the file, inspect its columns and decide what must be cleaned.
+The records were assembled quickly by different staff members, so some values may be written inconsistently.
+
+Most of the students who became sick have visited hospital at some stage during the investigation.
+
+Task: load the patient records, inspect the columns and decide what must be cleaned.
+
+Once the data are cleaned, look for patterns that might help explain the outbreak.

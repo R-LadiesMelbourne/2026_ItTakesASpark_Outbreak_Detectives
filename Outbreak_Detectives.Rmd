@@ -22,20 +22,26 @@ source("setup/setup.R")
 
 # Emergency Alert
 
-Thirty-six students have returned from a school camp.
+Several local hospitals have reported an unusual increase in sick students from the same school.
 
-Several are sick.
+Students from two classrooms have presented with a range of symptoms, and the number of cases is continuing to grow.
 
 Your team has joined the **Global Outbreak Investigation Unit**.
+
+Your job is to work out what is happening.
+
+Do not diagnose the outbreak yet. Follow the evidence.
 
 Possible causes include:
 
 - Influenza A
-- Bird flu
 - COVID-19
-- *Staphylococcus aureus* food poisoning
-- Group A *Streptococcus* (Strep A)
 - Zombie Virus A
+- Malaria
+- RSV (Respiratory syncytial virus)
+- Rhinovirus
+- Human metapneumovirus (HMPV)
+- Toxoplasmosis
 
 Your job is to follow the evidence.
 
@@ -273,11 +279,12 @@ Before you see the laboratory results, decide:
 
 # 9. Breaking News: sequencing results
 
-The laboratory has sequenced DNA from several student samples.
+Patient records have arrived from several hospitals.
 
-We can use a phylogenetic tree to compare them with reference samples.
+The records were assembled quickly by different staff members, so some values may be written inconsistently.
 
-The difficult code is hidden inside our function.
+Most of the students who became sick have visited hospital at some stage during the investigation.
+
 
 ```{r tree, fig.width=10, fig.height=7}
 show_tree(
@@ -344,9 +351,6 @@ Your team must now give the outbreak response team its answer.
 
 What is the most likely disease?
 
-### The two unusual students
-
-Are P29 and P30 part of the same outbreak?
 
 ### Give three pieces of evidence
 

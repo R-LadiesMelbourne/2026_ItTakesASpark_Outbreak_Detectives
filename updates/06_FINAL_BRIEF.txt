@@ -1,8 +1,20 @@
 FINAL BRIEF
 
+You now have evidence from:
+• hospital records and symptoms
+• timing of illness
+• student locations and activities
+• simulated sequencing
+• contact tracing
+
+The Chief Epidemiologist needs your final outbreak report.
+
 Submit:
-1. Your most likely diagnosis.
-2. Three pieces of evidence.
-3. The likely exposure or source.
-4. One limitation of your investigation.
-5. One public-health action you would recommend.
+1. Do you think there is one outbreak or more than one?
+2. What is the most likely diagnosis for each group of cases?
+3. Give three pieces of evidence supporting your conclusions.
+4. What is the likely exposure or transmission route for each group?
+5. One limitation of your investigation.
+6. One public-health action you would recommend for each outbreak.
+
+Be ready to explain how the different pieces of evidence helped you reach your conclusions.

@@ -1,37 +1,144 @@
 patient_id,location,visited,hours_at_location
-P01,Grade 5/6 classroom,YES,6.2
-P02,Grade 5/6 classroom,yes,4.7
-P03,Grade 5/6 classroom,Y,6.2
-P04,Grade 5/6 classroom,Yes,4.7
-P05,Grade 5/6 classroom,YES,5.3
-P06,Grade 5/6 classroom,yes,5.7
-P07,Grade 5/6 classroom,Y,6.3
-P08,Grade 5/6 classroom,Yes,6.1
-P09,Grade 5/6 classroom,YES,4.8
-P10,Grade 5/6 classroom,yes,6.3
-P11,Grade 5/6 classroom,Y,5.8
-P12,Grade 5/6 classroom,Yes,6.4
-P13,Grade 5/6 classroom,YES,6.2
-P14,Grade 5/6 classroom,yes,4.7
-P15,Grade 5/6 classroom,Y,6.2
-P16,Grade 5/6 classroom,Yes,5.9
-P17,Grade 5/6 classroom,YES,4.8
-P18,Grade 5/6 classroom,yes,5.1
-P19,Group science project,Y,3.5
-P20,Group science project,Yes,3.3
-P21,Group science project,YES,2.6
-P22,Group science project,yes,2.5
-P23,Group science project,Y,3.9
-P24,Group science project,Yes,3.9
-P25,Group science project,YES,4.4
-P26,Group science project,yes,3.1
-P27,Group science project,Y,4.8
-P28,Group science project,Yes,4.2
-P29,Lunch room chicken wraps,YES,1
-P30,Lunch room chicken wraps,yes,1
-P31,Grade 5/6 classroom,Y,0.7
-P32,Library,Yes,0.7
-P33,Lunch room pasta,YES,0.3
-P34,Bus 1,yes,0.6
-P35,Group science project,Y,0.4
-P36,Sports oval,Yes,0.6
+P01,International airport / return flight,YES,2.6
+P02,Classroom 9A,yes,2.6
+P03,Classroom 9A,Y,2.0
+P04,Classroom 9A,Yes,2.6
+P05,Classroom 9A,YES,1.8
+P06,Classroom 9A,yes,1.3
+P07,Classroom 9A,Y,3.4
+P08,Classroom 9A,Yes,4.5
+P09,Classroom 9A,YES,3.3
+P10,Classroom 9A,yes,1.0
+P11,Classroom 9A,Y,4.7
+P12,Classroom 9A,Yes,3.8
+P13,Classroom 9A,YES,5.8
+P14,Classroom 9A,yes,0.6
+P15,Classroom 9A,Y,3.3
+P16,Classroom 9A,Yes,5.9
+P17,Classroom 9A,YES,5.0
+P18,Classroom 9A,yes,4.1
+P19,Classroom 9A,Y,3.9
+P20,Classroom 9A,Yes,3.1
+P21,Lunch area,YES,2.6
+P22,Lunch area,yes,4.3
+P23,Lunch area,Y,5.3
+P24,Lunch area,Yes,2.1
+P25,Lunch area,YES,4.1
+P26,Lunch area,yes,3.8
+P27,Lunch area,Y,1.3
+P28,Lunch area,Yes,2.2
+P29,Lunch area,YES,2.8
+P30,Lunch area,yes,4.4
+P31,Lunch area,Y,3.3
+P32,Lunch area,Yes,2.6
+P33,Lunch area,YES,3.1
+P34,Lunch area,yes,5.4
+P35,Lunch area,Y,5.8
+P36,Art class,Yes,3.7
+P37,Art class,YES,3.1
+P38,Art class,yes,2.2
+P39,Art class,Y,1.2
+P40,Art class,Yes,4.3
+P41,Art class,YES,0.8
+P42,Art class,yes,5.4
+P43,Art class,Y,5.4
+P44,Art class,Yes,5.9
+P45,Art class,YES,4.4
+P46,Hockey training,yes,1.4
+P47,Hockey training,Y,5.1
+P48,Hockey training,Yes,4.2
+P49,Hockey training,YES,5.5
+P50,Hockey training,yes,3.6
+P51,Hockey training,Y,1.5
+P52,Hockey training,Yes,4.6
+P53,Hockey training,YES,2.4
+P54,Hockey training,yes,4.7
+P55,Hockey training,Y,2.2
+P56,Hockey training,Yes,4.3
+P57,Before-school swimming practice,YES,0.7
+P58,Before-school swimming practice,yes,0.7
+P59,Before-school swimming practice,Y,0.8
+P60,Before-school swimming practice,Yes,0.8
+P61,Before-school swimming practice,YES,1.2
+P62,Before-school swimming practice,yes,1.0
+P63,Before-school swimming practice,Y,1.3
+P64,Before-school swimming practice,Yes,1.0
+P65,Before-school swimming practice,YES,1.0
+P66,Before-school swimming practice,yes,1.3
+P67,Before-school swimming practice,Y,1.0
+P68,Before-school swimming practice,Yes,1.5
+P69,Before-school swimming practice,YES,0.9
+P70,Before-school swimming practice,yes,1.4
+P71,Before-school swimming practice,Y,1.4
+P72,Classroom 9A,YES,2.5
+P72,Lunch courtyard,yes,1.0
+P72,Swimming practice - did not enter pool,yes,1.5
+P73,Classroom 9A,YES,2.5
+P73,Lunch courtyard,yes,1.0
+P73,Swimming practice - did not enter pool,yes,1.5
+P74,Classroom 9A,YES,2.5
+P74,Lunch courtyard,yes,1.0
+P74,Swimming practice - did not enter pool,yes,1.5
+P75,Classroom 9A,YES,2.5
+P75,Lunch courtyard,yes,1.0
+P75,Swimming practice - did not enter pool,yes,1.5
+P76,Classroom 9A,YES,2.5
+P76,Lunch courtyard,yes,1.0
+P76,Swimming practice - did not enter pool,yes,1.5
+P77,Classroom 9A,YES,2.5
+P77,Lunch courtyard,yes,1.0
+P77,Swimming practice - did not enter pool,yes,1.5
+P78,Classroom 9A,YES,2.5
+P78,Lunch courtyard,yes,1.0
+P78,Swimming practice - did not enter pool,yes,1.5
+P79,Classroom 9A,YES,2.5
+P79,Lunch courtyard,yes,1.0
+P79,Swimming practice - did not enter pool,yes,1.5
+P80,Classroom 9A,YES,2.5
+P80,Lunch courtyard,yes,1.0
+P80,Swimming practice - did not enter pool,yes,1.5
+P81,Classroom 9A,YES,2.5
+P81,Lunch courtyard,yes,1.0
+P81,Swimming practice - did not enter pool,yes,1.5
+P82,Classroom 9A,YES,2.5
+P82,Lunch courtyard,yes,1.0
+P82,Swimming practice - did not enter pool,yes,1.5
+P83,Classroom 9A,YES,2.5
+P83,Lunch courtyard,yes,1.0
+P83,Swimming practice - did not enter pool,yes,1.5
+P84,Classroom 9B,YES,2.5
+P84,Lunch courtyard,yes,1.0
+P84,Swimming practice - did not enter pool,yes,1.5
+P85,Classroom 9B,YES,2.5
+P85,Lunch courtyard,yes,1.0
+P85,Swimming practice - did not enter pool,yes,1.5
+P86,Classroom 9B,YES,2.5
+P86,Lunch courtyard,yes,1.0
+P86,Swimming practice - did not enter pool,yes,1.5
+P87,Classroom 9B,YES,2.5
+P87,Lunch courtyard,yes,1.0
+P87,Hockey training,yes,1.5
+P88,Classroom 9B,YES,2.5
+P88,Lunch courtyard,yes,1.0
+P88,Hockey training,yes,1.5
+P89,Classroom 9B,YES,2.5
+P89,Lunch courtyard,yes,1.0
+P89,Hockey training,yes,1.5
+P90,Classroom 9B,YES,2.5
+P90,Lunch courtyard,yes,1.0
+P90,Hockey training,yes,1.5
+P91,Classroom 9B,YES,2.5
+P91,Lunch courtyard,yes,1.0
+P91,Hockey training,yes,1.5
+P92,Classroom 9B,YES,2.5
+P92,Lunch courtyard,yes,1.0
+P92,Hockey training,yes,1.5
+P93,Classroom 9B,YES,2.5
+P93,Lunch courtyard,yes,1.0
+P93,Hockey training,yes,1.5
+P94,Classroom 9B,YES,2.5
+P94,Lunch courtyard,yes,1.0
+P94,Hockey training,yes,1.5
+P95,Classroom 9B,YES,2.5
+P95,Lunch courtyard,yes,1.0
+P95,Hockey training,yes,1.5
