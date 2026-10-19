@@ -38,7 +38,10 @@ load_disease_clues <- function() {
 # ---------- Clean patient data ----------
 
 clean_data <- function(data) {
-
+  if (missing(data)) {
+    stop("You need to give this function the name of the dataset you want to clean! Like this: clean_data(my_dataset)")
+  }
+  
   yes_no_columns <- c(
     "hospitalised", "fever", "cough", "sore_throat", "headache",
     "muscle_aches", "vomiting", "diarrhoea", "loss_of_smell",
