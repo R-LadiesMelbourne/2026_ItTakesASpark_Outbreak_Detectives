@@ -33,3 +33,6 @@ if (length(missing_packages) > 0) {
 library(tidyverse)
 
 source("setup/workshop_functions.R")
+
+# remove the needed and missing packages vectors after setup so they don't clutter env panel
+rm(needed_packages, missing_packages)
