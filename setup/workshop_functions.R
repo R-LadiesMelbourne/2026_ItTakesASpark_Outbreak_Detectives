@@ -34,14 +34,13 @@ load_disease_clues <- function() {
   )
 }
 
-
 # ---------- Clean patient data ----------
 
 clean_data <- function(data) {
   if (missing(data)) {
     stop("You need to give this function the name of the dataset you want to clean! Like this: clean_data(my_dataset)")
   }
-  
+
   yes_no_columns <- c(
     "hospitalised", "fever", "cough", "sore_throat", "headache",
     "muscle_aches", "vomiting", "diarrhoea", "loss_of_smell",
@@ -75,11 +74,22 @@ clean_data <- function(data) {
 # ---------- Simple investigation summaries ----------
 
 count_cases <- function(data) {
+  if (missing(data)) {
+    stop("You need to give this function the name of the dataset! Like this: count_cases(my_dataset)")
+  }
   data |>
     dplyr::count(case_status, name = "students")
 }
 
 show_sickest <- function(data, number = 6) {
+  if (missing(data)) {
+    stop("You need to give this function the name of the dataset! Like this: show_sickest(my_dataset)")
+  }
+
+  if (class(number) != "numeric") {
+    stop("number must be a number, like 6 or 7")
+  }
+
   data |>
     dplyr::filter(case_status == "Sick") |>
     dplyr::arrange(dplyr::desc(temperature_c)) |>
@@ -88,6 +98,9 @@ show_sickest <- function(data, number = 6) {
 }
 
 symptom_table <- function(data) {
+  if (missing(data)) {
+    stop("You need to give this function the name of the dataset! Like this: symptom_table(my_dataset)")
+  }
 
   symptoms <- c(
     "fever", "cough", "sore_throat", "headache",
@@ -107,7 +120,9 @@ symptom_table <- function(data) {
 }
 
 show_symptoms <- function(data) {
-
+  if (missing(data)) {
+    stop("You need to give this function the name of the dataset! Like this: show_symptoms(my_dataset)")
+  }
   symptom_table(data) |>
     ggplot2::ggplot(
       ggplot2::aes(
@@ -125,7 +140,9 @@ show_symptoms <- function(data) {
 }
 
 show_temperature <- function(data) {
-
+  if (missing(data)) {
+    stop("You need to give this function the name of the dataset! Like this: show_temperature(my_dataset)")
+  }
   data |>
     ggplot2::ggplot(
       ggplot2::aes(
@@ -144,7 +161,9 @@ show_temperature <- function(data) {
 }
 
 show_onset <- function(data) {
-
+  if (missing(data)) {
+    stop("You need to give this function the name of the dataset! Like this: show_onset(my_dataset)")
+  }
   data |>
     dplyr::filter(case_status == "Sick") |>
     dplyr::summarise(
@@ -158,11 +177,16 @@ show_onset <- function(data) {
 # ---------- Location evidence ----------
 
 combine_evidence <- function(patients, locations) {
+  if (missing(patients) | missing(locations)) {
+    stop("You need to give this function both the patient and location data! Like this: combine_evidence(patients, locations)")
+  }
   dplyr::left_join(patients, locations, by = "patient_id")
 }
 
 location_table <- function(data) {
-
+  if (missing(data)) {
+    stop("You need to give this function the name of the dataset! Like this: location_table(my_dataset)")
+  }
   data |>
     dplyr::group_by(location) |>
     dplyr::summarise(
@@ -175,7 +199,9 @@ location_table <- function(data) {
 }
 
 show_locations <- function(data) {
-
+  if (missing(data)) {
+    stop("You need to give this function the name of the dataset! Like this: show_locations(my_dataset)")
+  }
   location_table(data) |>
     ggplot2::ggplot(
       ggplot2::aes(
@@ -201,6 +227,18 @@ show_tree <- function(
   reference_colour = "grey30",
   title = "Which reference is closest to the outbreak samples?"
 ) {
+
+  if(class(title) != "character") {
+    stop("title must be text 'in quotations like this' ")
+  }
+
+  if(class(try(col2rgb(sample_colour), silent = TRUE))[1] == "try-error") {
+    stop("sample_colour must be a colour name (like 'orange') or hex code (like #c92fcc)")
+  }
+
+  if(class(try(col2rgb(reference_colour), silent = TRUE))[1] == "try-error") {
+    stop("reference_colour must be a colour name (like 'orange') or hex code (like #c92fcc)")
+  }
 
   alignment_file <- "case_files/mystery_A/03_sequencing_alignment.fasta"
 
@@ -277,6 +315,22 @@ show_network <- function(
   well_colour = "blue",
   title = "Who had contact with whom?"
 ) {
+
+  if(class(title) != "character") {
+    stop("title must be text 'in quotations like this' ")
+  }
+
+  if(class(try(col2rgb(sick_colour), silent = TRUE))[1] == "try-error") {
+    stop("sick_colour must be a colour name (like 'orange') or hex code (like #c92fcc)")
+  }
+
+  if(class(try(col2rgb(well_colour), silent = TRUE))[1] == "try-error") {
+    stop("well_colour must be a colour name (like 'orange') or hex code (like #c92fcc)")
+  }
+
+  if (missing(contacts) | missing(patients)) {
+    stop("You need to give this function both the contacts and patients data! Like this: show_network(contacts, patients)")
+  }
 
   graph <- igraph::graph_from_data_frame(
     contacts,
@@ -403,6 +457,9 @@ show_network <- function(
 }
 
 network_groups <- function(contacts, patients = NULL) {
+  if (missing(contacts)) {
+    stop("You need to give this function at least the contacts data! Like this: network_groups(contacts)")
+  }
 
   if (is.null(patients)) {
 
